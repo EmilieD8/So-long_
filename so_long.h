@@ -6,7 +6,7 @@
 /*   By: edrouot <edrouot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/21 17:16:26 by edrouot           #+#    #+#             */
-/*   Updated: 2023/05/10 14:02:02 by edrouot          ###   ########.fr       */
+/*   Updated: 2023/05/21 18:29:14 by edrouot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,7 @@
 # define EXIT_OPEN_IMG "assets/exit_open.xpm"
 # define EXIT_CLOSE_IMG "assets/exit_close.xpm"
 # define OBSTACLES_IMG "assets/obstacles.xpm"
+# define UMBRELLA_IMG "assets/umbrella.xpm"
 
 typedef struct s_bool
 {
@@ -107,7 +108,6 @@ typedef struct t_game
     t_image wall;
     t_image floor;
     t_image item;
-    t_image door;
     t_image exit_open;
     t_image exit_close;
     t_image player_front;
@@ -115,6 +115,7 @@ typedef struct t_game
     t_image player_right;
     t_image player_left;
     t_image obstacles;
+    t_image umbrella;
     int allocate_img;
 } t_game;
 
@@ -122,7 +123,7 @@ typedef struct t_game
 int     check_first_and_last_lines(char *line);
 int	check_other_lines(t_game *game, char *line);
 int check_map(t_game *game);
-char **get_map(int fd);
+char	**get_map(char *argv, t_game *game);
 void	free_map(t_game *game);
 int check_length_lines(t_game *game);
 
@@ -137,6 +138,7 @@ char	*readtmp(int fd, char *tmp);
 char	*get_next_line(int fd);
 char	**ft_split(char const *s, char c);
 char	*ft_strjoin(char *s1, char *s2);
+char	*ft_strdup(const char *s);
 
 
 void    ft_initialize_game(t_game *game);
@@ -154,6 +156,11 @@ int    input_keyboard (int key, t_game *game);
 
 void victory(t_game *game);
 void	free_all(t_game *game);
+int    close_game(t_game *game);
+int check_arg(char *argv);
+void    flood_fill(t_game *game);
+int check_path(t_game *copy, int x, int y);
+
 
 // t_bool is_valid_path(int start_i, int start_j, int end_i, int end_j, t_bool visited[ROWS][COLS]);
 // int     test_map(t_game *game);

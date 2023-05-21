@@ -6,7 +6,7 @@
 /*   By: edrouot <edrouot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/09 16:00:35 by edrouot           #+#    #+#             */
-/*   Updated: 2023/04/25 11:12:07 by edrouot          ###   ########.fr       */
+/*   Updated: 2023/05/21 18:47:02 by edrouot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,6 +90,7 @@ char	**ft_split(char const *s, char c)
 		index++;
 	}
 	arr[i] = 0;
+	free((void *)s);
 	return (arr);
 }
 

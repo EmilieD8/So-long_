@@ -13,10 +13,13 @@ void    correct_image(int element, t_game *game, int row, int column)
     else if (element == 'E' && game->map.item == 0)
         mlx_put_image_to_window(game->mlx_ptr, game->win_ptr, game->exit_open.xpm_ptr, column * game->exit_open.x, row * game->exit_open.y);
     else if (element == 'P')
-        mlx_put_image_to_window(game->mlx_ptr, game->win_ptr, game->player.xpm_ptr, column * game->player_front.x, row * game->player_front.y);
+        mlx_put_image_to_window(game->mlx_ptr, game->win_ptr, game->player.xpm_ptr, column * game->player.x, row * game->player.y);
     else if (element == 'X')
         mlx_put_image_to_window(game->mlx_ptr, game->win_ptr, game->obstacles.xpm_ptr, column * game->obstacles.x, row * game->obstacles.y);
+    else if (element == 'U')
+        mlx_put_image_to_window(game->mlx_ptr, game->win_ptr, game->umbrella.xpm_ptr, column * game->umbrella.x, row * game->umbrella.y);
 }
+
 
 void ft_render_images(t_game *game)
 {
@@ -25,7 +28,6 @@ void ft_render_images(t_game *game)
 
     i = 0;
     j = 0;
-    game->allocate_img = 1;
     while (i != game->map.rows)
     {
         while (j != game->map.columns)

@@ -18,7 +18,9 @@ SRCS =  so_long.c \
 		so_long_utils.c \
 		ft_initialize_graphics.c \
 		render_images.c \
-		ft_move.c
+		ft_move.c \
+		Check_map_utils.c \
+		ft_strdup.c
 
 OBJS = $(SRCS:.c=.o)
 
