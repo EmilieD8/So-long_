@@ -6,7 +6,7 @@
 /*   By: edrouot <edrouot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/19 16:49:25 by edrouot           #+#    #+#             */
-/*   Updated: 2023/05/21 18:34:45 by edrouot          ###   ########.fr       */
+/*   Updated: 2023/05/23 14:50:33 by edrouot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,7 @@ void	move_player(t_game *game, int x, int y, t_image new_player)
 		game->map.full_map[x][y] = 'P';
 	game->movements++;
 	ft_printf("So far, you did %d moves ! Keep it going !\n", game->movements);
-	// show_movements(game);
+	show_movements(game);
 	ft_render_images(game);
 
 	}

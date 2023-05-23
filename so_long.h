@@ -6,7 +6,7 @@
 /*   By: edrouot <edrouot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/21 17:16:26 by edrouot           #+#    #+#             */
-/*   Updated: 2023/05/21 18:29:14 by edrouot          ###   ########.fr       */
+/*   Updated: 2023/05/23 13:52:55 by edrouot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -160,7 +160,6 @@ int    close_game(t_game *game);
 int check_arg(char *argv);
 void    flood_fill(t_game *game);
 int check_path(t_game *copy, int x, int y);
-
 
 // t_bool is_valid_path(int start_i, int start_j, int end_i, int end_j, t_bool visited[ROWS][COLS]);
 // int     test_map(t_game *game);

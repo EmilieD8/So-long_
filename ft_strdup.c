@@ -6,7 +6,7 @@
 /*   By: edrouot <edrouot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/08 16:14:42 by edrouot           #+#    #+#             */
-/*   Updated: 2023/05/21 16:29:20 by edrouot          ###   ########.fr       */
+/*   Updated: 2023/05/23 12:43:14 by edrouot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ char	*ft_strdup(const char *s)
 	index = 0;
 	length = ft_strlen(s);
 	str2 = (char *)malloc(sizeof(char) * (length + 1));
-	if (str2 == 0)
+	if (!str2)
 		return (NULL);
 	while (s[index] != '\0')
 	{

@@ -6,7 +6,7 @@
 /*   By: edrouot <edrouot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/21 17:16:19 by edrouot           #+#    #+#             */
-/*   Updated: 2023/05/21 18:44:04 by edrouot          ###   ########.fr       */
+/*   Updated: 2023/05/23 12:35:56 by edrouot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,15 @@ int	main(int argc, char **argv)
 	t_game	*game;
 
 	game = malloc(sizeof(t_game));
+	if(!game)
+	{	
+		free(game);
+		ft_printf("The first allocation failed");
+		exit(1);
+	}
+	ft_initialize_variables(game);
 	if (argc != 2 || check_arg(argv[1]) == 0)
 		ft_error(game, "Invalid arguments !");
-	ft_initialize_variables(game);
 	game->map.full_map = get_map(argv[1], game);
 	if (!check_map(game))
 		ft_error(game, "The map is not valid !");
@@ -30,6 +36,6 @@ int	main(int argc, char **argv)
 	mlx_hook(game->win_ptr, KeyPress, KeyPressMask, *input_keyboard, game);
 	mlx_hook(game->win_ptr, 17, 0L, *close_game, game);
 	mlx_loop(game->mlx_ptr);
-	// free_all(game);
+	free(game);
 	return (0);
 }

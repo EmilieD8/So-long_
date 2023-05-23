@@ -6,7 +6,7 @@
 /*   By: edrouot <edrouot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/06 18:42:21 by edrouot           #+#    #+#             */
-/*   Updated: 2023/05/21 18:40:38 by edrouot          ###   ########.fr       */
+/*   Updated: 2023/05/23 12:55:58 by edrouot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,6 +94,8 @@ char	**get_map(char *argv, t_game *game)
 	}
 	free(line);
 	map = ft_split(final_line, '\n');
+	// map = strtok(final_line, "\n");
+
 	free(final_line);
 	close(fd);
 	return (map);
@@ -124,6 +126,6 @@ int	check_map(t_game *game)
 		|| check_first_and_last_lines(game->map.full_map[j - 1]) == 0)
 		return (0);
 	game->map.allocate_map = 1;
-    // flood_fill(game);
+    flood_fill(game);
 	return (1);
 }

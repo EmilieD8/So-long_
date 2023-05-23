@@ -24,14 +24,16 @@ void	free_all(t_game *game)
 		mlx_destroy_image(game->mlx_ptr, game->item.xpm_ptr);
 		mlx_destroy_image(game->mlx_ptr, game->obstacles.xpm_ptr);
 		mlx_destroy_image(game->mlx_ptr, game->umbrella.xpm_ptr);
+		//mlx_destroy_image(game->mlx_ptr, game->player.xpm_ptr);
 		mlx_destroy_window(game->mlx_ptr, game->win_ptr);
 		mlx_destroy_display(game->mlx_ptr);
-		// mlx_destroy_image(game->mlx_ptr, game->player.xpm_ptr);
 		free(game->mlx_ptr);
 	}
-	// if (game->map.allocate_map == 1)
-	// 	free_map(game);
-	// free(game);   creating a seg fault 
+	if (game->map.allocate_map == 1)
+		free_map(game);
+	free(game);
+	//mlx_destroy_image(game->mlx_ptr, game->player.xpm_ptr);
+
 }
 
 void    ft_error(t_game *game, char *string)
